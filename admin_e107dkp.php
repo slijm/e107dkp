@@ -32,6 +32,9 @@ if ($sql->db_Count("plugin", "(*)", "WHERE plugin_path = 'cxlib' AND plugin_inst
 					<tr>
 						<td><a href=\"admin_zones.php\" title=\"Zone Management\"><img src=\"".e_PLUGIN."/e107dkp/images/icons/keys.png\"/></a></td><td><a href=\"admin_zones.php\" title=\"Zone Management\">Zone Management</a></td>
 					</tr>
+					<tr>
+						<td><a href=\"admin_parserconfiguration.php\" title=\"Parser Configuration\"><img src=\"".e_PLUGIN."/e107dkp/images/icons/configuration.png\"/></a></td><td><a href=\"admin_parserconfiguration.php\" title=\"Parser Configuration\">Parser Configuration</a></td>
+					</tr>
 				</table>
 				<p>Thank you for trying out this early release version of e107dkp. Please remember that this is a very early version of the plugin so there are likely to be a large amount of bugs and \"quirks\". If you do spot any issues please report them on the codexscape forum.</p>
 			</div>

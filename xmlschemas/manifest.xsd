@@ -6,6 +6,5 @@
 			<xsd:element name="name" type="xsd:string"/>
 			<xsd:element name="internalname" type="xsd:string"/>
 			<xsd:element name="author" type="xsd:string"/>
-			<xsd:element name="version" type="xsd:integer"/>
 		</xsd:sequence>
 </xsd:schema>

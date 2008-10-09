@@ -1,11 +1,6 @@
 <?php
 class Parser {
-	private $ctrtdata;
-	private $starttime;
-	private $endtime;
-	private $zone;
-	private $loot;
-	private $attendees;
+	private $ctrtdata, $starttime, $endtime, $zone, $loot, $attendees;
 	
 	public function __construct($ctrtstring = "") {
 		$this->ctrtdata = simplexml_load_string($ctrtstring);
