@@ -6,15 +6,11 @@ class Parser {
 	private $zone;
 	private $loot;
 	private $attendees;
-	private $jointimes;
-	private $leavetimes;
 	
 	public function __construct($ctrtstring = "") {
 		$this->ctrtdata = simplexml_load_string($ctrtstring);
 		$this->loot = array();
 		$this->attendees = array();
-		$this->jointimes = array();
-		$this->leavetimes = array();
 		$this->parse();
 	}
 	
@@ -24,24 +20,18 @@ class Parser {
 		$this->fetchAttendees();
 		$this->fetchLoot();
 		$this->fetchZone();
-		$this->fetchJoinTimes();
-		$this->fetchLeaveTimes();
+	}
+	
+	public function getDate() {
+		return date("Y-m-d", $this->starttime);
 	}
 	
 	public function getStartTime() {
-		return $this->starttime;
+		return date("H:m", $this->starttime);
 	}
 	
 	public function getEndTime() {
-		return $this->endtime;
-	}
-	
-	public function getJoinTimes() {
-		return $this->jointimes;
-	}
-	
-	public function getLeaveTimes() {
-		return $this->leavetimes;
+		return date("H:m", $this->endtime);
 	}
 	
 	public function getZone() {
@@ -49,19 +39,33 @@ class Parser {
 	}
 	
 	public function getLoot() {
-		return $this->loot->children();
+		$loot = array();
+		foreach ($this->loot->children() as $loot) {
+			$item['item'] = (string)$loot->ItemName;
+			$item['member'] = (string)$loot->Player;
+			if (isset($loot->Costs)) 
+				$item['cost'] = (string)$loot->Costs;
+			$loot[] = $item;
+		}
+		return $loot;
 	}
 	
 	public function getAttendees() {
-		return $this->attendees->children();
+		$attendees = array();
+		foreach ($this->attendees->children() as $attendee) {
+			$attendees[] = (string)$attendee->name;
+		}
+		return $attendees;
 	}
 	
 	private function fetchStartTime() {
 		$this->starttime = $this->ctrtdata->start;
+		$this->startitme = strtotime($this->starttime);
 	}
 	
 	private function fetchEndTime() {
 		$this->endtime = $this->ctrtdata->end;
+		$thsi->endtime = strtotime($this->endtime);
 	}
 	
 	private function fetchZone() {
@@ -88,22 +92,6 @@ class Parser {
 	
 	private function fetchAttendees() {
 		$this->attendees = $this->ctrtdata->PlayerInfos;
-	}
-	
-	private function fetchJoinTimes() {
-		foreach ($this->ctrtdata->Join->children() as $join) {
-			$player = (string)$join->player;
-			if (!array_key_exists($player, $this->jointimes)) {
-				$this->jointimes[$player] = (string)$join->time;
-			}	
-		}
-	}
-	
-	private function fetchLeaveTimes() {
-		foreach ($this->ctrtdata->Leave->children() as $leave) {
-			$player = (string)$leave->player;
-			$this->leavetimes[$player] = (string)$leave->time;
-		}
 	}
 }
 ?>

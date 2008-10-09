@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://www.w3.org/2001/XMLSchema">
+	<xsd:element name="parser" type="Parser"/>
+	<xsd:complexType name="Parser">
+		<xsd:sequence>
+			<xsd:element name="name" type="xsd:string"/>
+			<xsd:element name="internalname" type="xsd:string"/>
+			<xsd:element name="author" type="xsd:string"/>
+			<xsd:element name="version" type="xsd:integer"/>
+		</xsd:sequence>
+</xsd:schema>
