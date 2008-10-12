@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<parser xmlns="http://schemas.codexscape.com/e107dkp/ScoringManifest.xsd">
+	<name>Basic Scoring System</name>
+	<internalname>basic</internalname>
+	<author>cuscus1986</author>
+	<description>The basic scoring system awards DKP for boss kills and deducts DKP for any item purchases.</description>
+	<settings>
+		<setting>
+			<name>Boss Kill Award</name>
+			<description>This is the amount of DKP awarded when a boss is killed.</description>
+			<internalname>bosskillaward</internalname>
+			<type>number</type>
+			<value>10</value>
+		</setting>
+	</settings>
+</parser>
