@@ -2,14 +2,18 @@
 global $ns;
 
 $text .= "<div style=\"text-align: center;\">
+<h2>".LAN_ADD_RAID_TITLE."</h2>
 <form name=\"createraid\" method=\"post\" action=\"?action=create\">
-<textarea name=\"raidlog\"></textarea>
-<p>Tracker Name:
-	<select name=\"parser\">
-		<option value=\"ctrt\">CT Raid Tracker</option>
-	</select>
-</p>
-<input type=\"submit\" value=\"Parse Log\"/>
+<table>
+<tr><td><label for=\"database\">".LAN_ADD_DATABASE_SELECT."</label></td><td><select name=\"database\"><option></option>";
+
+foreach (Database::fetchAll() as $database) {
+	$text .= "<option value=\"".$database->id."\">".$database->name."</option>";
+}
+
+$text .= "</select></td></tr>
+</table>
+<input type=\"submit\" value=\"".LAN_ADD_RAID_SUBMIT."\"/>
 </form>
 </div>";
 

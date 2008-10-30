@@ -1,5 +1,7 @@
 <?php
-class Parser {
+require_once(dirname(__FILE__)."/../GenericParser.php");
+
+class Parser extends GenericParser {
 	private $ctrtdata, $starttime, $endtime, $zone, $loot, $attendees;
 	
 	public function __construct($ctrtstring = "") {
@@ -54,8 +56,7 @@ class Parser {
 	}
 	
 	private function fetchStartTime() {
-		$this->starttime = $this->ctrtdata->start;
-		$this->startitme = strtotime($this->starttime);
+		$this->starttime = strtotime($this->ctrtdata->start);
 	}
 	
 	private function fetchEndTime() {
@@ -64,21 +65,7 @@ class Parser {
 	}
 	
 	private function fetchZone() {
-		$this->zone = (string)$this->ctrtdata->zone;
-		if (strlen($this->zone) == 0) {
-			// We were unable to track down a zone. 
-			// Attempt to find it on a boss string.
-			if (count($this->loot) > 0) {
-				$items = $this->loot->children();
-				$item = new CTRTItem($items[0]);
-				$this->zone = $item->getZone();
-			}
-			// If it is still not located then mark the raid
-			// zone as unknown.
-			if (strlen($this->zone) == 0) {
-				$this->zone = "Unknown";
-			}
-		}
+		$this->zone = (string)$this->ctrtdata->zone;		
 	}
 	
 	private function fetchLoot() {

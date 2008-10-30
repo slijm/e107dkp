@@ -18,9 +18,10 @@ $eplug_conffile = "admin_e107dkp.php";
  
 // List of preferences
 $eplug_prefs = array(
-	"dkp_version" => "0.1"
+	"e107dkp_default_parser" => "ctrt",
+	"e107dkp_default_score_system" => "basic"
 );
-$eplug_table_names = array('e107dkp_raids', 'e107dkp_members', 'e107dkp_attendees', 'e107dkp_earneddkp', 'e107dkp_spentdkp', 'e107dkp_adjusteddkp', 'e107dkp_zones', 'e107dkp_items', 'e107dkp_ignoreditems', 'e107dkp_parsers');
+$eplug_table_names = array('e107dkp_raids', 'e107dkp_members', 'e107dkp_attendees', 'e107dkp_earneddkp', 'e107dkp_spentdkp', 'e107dkp_adjusteddkp', 'e107dkp_zones', 'e107dkp_items', 'e107dkp_ignoreditems', 'e107dkp_parsers', 'e107dkp_databases');
 $eplug_tables = array(
 "CREATE TABLE ".MPREFIX."e107dkp_raids (
 	`id` int(11) PRIMARY KEY AUTO_INCREMENT,
@@ -77,6 +78,10 @@ $eplug_tables = array(
 	`name` varchar(128) NOT NULL,
 	`internalname` varchar(128) NOT NULL,
 	`author` varchar(128) NOT NULL
+) ENGINE = MyISAM;",
+"CREATE TABLE ".MPREFIX."e107dkp_databases (
+	`id` int(11) PRIMARY KEY AUTO_INCREMENT,
+	`name` varchar(128) NOT NULL
 ) ENGINE = MyISAM;"
 ); 
  

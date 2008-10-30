@@ -1,0 +1,6 @@
+<?
+class ParserException extends Exception
+{
+	
+}
+?>

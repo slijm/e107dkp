@@ -11,6 +11,9 @@ if (isset($_GET['action']) && $_GET['action'] != '')
 else
 	$action = "index";
 
+if (!include_once(e_PLUGIN."/e107dkp/language/".e_LANGUAGE."/admin/raids/$action.php"))
+	require_once(e_PLUGIN."/e107dkp/language/English/admin/raids/$action.php");
+
 require_once(e_PLUGIN."e107dkp/admin/raids/$action.php");
 
 require_once(e_ADMIN."footer.php");

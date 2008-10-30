@@ -27,6 +27,9 @@ if ($sql->db_Count("plugin", "(*)", "WHERE plugin_path = 'cxlib' AND plugin_inst
 						<td colspan=\"2\" bgcolor=\"#000000\">&nbsp;</td>
 					</tr>
 					<tr>
+						<td><a href=\"admin_databases.php\" title=\"Database Management\"><img src=\"".e_PLUGIN."/e107dkp/images/icons/database.png\"/></a></td><td><a href=\"admin_databases.php\" title=\"Database Management\">Database Management</a></td>
+					</tr>
+					<tr>
 							<td><a href=\"admin_raids.php\" title=\"Raid Management\"><img src=\"".e_PLUGIN."/e107dkp/images/icons/raid.png\"/></a></td><td><a href=\"admin_raids.php\" title=\"Raid Management\">Raid Management</a></td>
 						</tr>
 					<tr>
