@@ -33,7 +33,6 @@ class Database
 	public function __construct($name, $id = null)
 	{
 		$this->_id = $id;
-		print($this->_id);
 		$this->_name = $name;
 	}
 

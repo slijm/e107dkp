@@ -4,14 +4,17 @@ if (!defined('e107_INIT')) { die("This file should not be accessed directly."); 
 // Plugin info  
 $eplug_name    = "e107dkp";
 $eplug_version = "0.1";
-$eplug_author  = "Heavy, cuscus";
+$eplug_author  = "cuscus";
+$eplug_url = "http://codexscape.com";
  
 $eplug_description = "The one stop shop for all of your DKP needs.";
-$eplug_compatible  = "e107 v0.7";
+$eplug_compatible  = "e107 v0.7.x";
 $eplug_readme      = "docs/readme.html";        
  
 // Name of the plugin's folder
 $eplug_folder = "e107dkp";
+
+$eplug_icon	= $eplug_folder."/images/logo.gif";
  
 // Name of the admin configuration file  
 $eplug_conffile = "admin_e107dkp.php";

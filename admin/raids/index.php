@@ -3,7 +3,8 @@ $raids = Raid::loadAll();
 
 global $ns;
 
-$text .= "<div style=\"text-align: center;\">";
+$text .= "<div style=\"text-align: center;\">
+<h2>".LAN_ADMIN_RAIDS_INDEX_TITLE."</h2>";
 if (count($raids)) {
 	$text .= "<table>
 	<tr><th>Raid Date</th><th>Raid Zone</th><th>Raid Start Time</th><th>Edit</th><th>Delete</th></tr>";
@@ -12,11 +13,11 @@ if (count($raids)) {
 	}
 	$text .= "</table>";
 } else {
-	$text .= "<p>No raids currently recorded.</p>";
+	$text .= "<p>".LAN_ADMIN_RAIDS_INDEX_NORAIDSEXIST."</p>";
 }
-$text .= "<p><a href=\"?action=add\">Add Raid</a></p>
-<p><a href=\"admin_e107dkp.php\">Main Menu</a></p>
+$text .= "<p><a href=\"?action=add\">".LAN_ADMIN_RAIDS_INDEX_ADDRAIDOPTION."</a></p>
+<p><a href=\"admin_e107dkp.php\">".LAN_ADMIN_COMMON_MAINMENU."</a></p>
 </div>";
 
-$ns->tableRender("<a href=\"admin_e107dkp.php\">Main Menu</a> -> Raid Management", $text);
+$ns->tableRender("<a href=\"admin_e107dkp.php\">".LAN_ADMIN_COMMON_MAINMENU."</a> -> Raid Management", $text);
 ?>
